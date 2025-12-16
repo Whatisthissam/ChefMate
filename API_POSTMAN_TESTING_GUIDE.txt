@@ -1,0 +1,155 @@
+ChefMate REST API – Postman Quick Guide
+
+Base URL
+- Use an environment variable in Postman:
+  baseUrl = http://localhost:5001
+
+Auth (JWT)
+- After login/register you receive:
+  { "token": "<JWT>" }
+- Store it in a Postman environment variable:
+  token = <JWT>
+- For protected endpoints set header:
+  Authorization: Bearer {{token}}
+
+Common Headers
+- Content-Type: application/json
+
+========================================
+HEALTH
+========================================
+GET {{baseUrl}}/api/health
+
+========================================
+AUTH
+========================================
+POST {{baseUrl}}/api/auth/register
+Headers:
+  Content-Type: application/json
+Body (raw JSON):
+{
+  "name": "Test User",
+  "email": "testuser@chefmaten.dev",
+  "password": "test1234"
+}
+
+POST {{baseUrl}}/api/auth/login
+Headers:
+  Content-Type: application/json
+Body (raw JSON):
+{
+  "email": "testuser@chefmaten.dev",
+  "password": "test1234"
+}
+
+========================================
+USERS (Protected)
+========================================
+GET {{baseUrl}}/api/users/me
+Headers:
+  Authorization: Bearer {{token}}
+
+GET {{baseUrl}}/api/users/me/saved
+Headers:
+  Authorization: Bearer {{token}}
+
+POST {{baseUrl}}/api/users/me/saved
+Headers:
+  Authorization: Bearer {{token}}
+  Content-Type: application/json
+Body (raw JSON):
+{
+  "recipeId": "<RECIPE_ID_STRING>"
+}
+
+DELETE {{baseUrl}}/api/users/me/saved/<RECIPE_ID_STRING>
+Headers:
+  Authorization: Bearer {{token}}
+
+========================================
+RECIPES (Public)
+========================================
+GET {{baseUrl}}/api/recipes/search?ingredients=tomato,onion
+Optional query params:
+  servings=<number>
+  difficulty=easy|medium|hard
+  cuisine=<string>
+  dietary=<string>
+  sort=best|popular|time
+
+GET {{baseUrl}}/api/recipes/trending?limit=12
+Optional query params:
+  cuisine=<string>
+  limit=<1..30>
+
+GET {{baseUrl}}/api/recipes/ingredients/suggest?q=tom
+Notes:
+  q must be at least 2 characters
+
+GET {{baseUrl}}/api/recipes/by-meal?meal=breakfast&limit=10
+Notes:
+  meal examples: breakfast, lunch, dinner, dessert, snacks, drinks
+
+GET {{baseUrl}}/api/recipes/<RECIPE_ID>
+Optional query params:
+  servings=<number>
+
+========================================
+RECIPES (Protected CRUD)
+========================================
+POST {{baseUrl}}/api/recipes
+Headers:
+  Authorization: Bearer {{token}}
+  Content-Type: application/json
+Body (raw JSON example):
+{
+  "title": "My Test Recipe",
+  "description": "Simple test recipe",
+  "thumbnailUrl": "",
+  "cuisine": "Indian",
+  "mealTypes": ["dinner"],
+  "dietaryTags": ["vegetarian"],
+  "difficulty": "easy",
+  "cookTimeMinutes": 20,
+  "prepTimeMinutes": 10,
+  "servingsDefault": 2,
+  "ingredients": [
+    {
+      "name": "Tomato",
+      "quantity": 2,
+      "unit": "pcs",
+      "nutritionPerUnit": { "calories": 18, "carbs": 3.9, "fat": 0.2, "protein": 0.9 }
+    },
+    {
+      "name": "Onion",
+      "quantity": 1,
+      "unit": "pcs",
+      "nutritionPerUnit": { "calories": 40, "carbs": 9.3, "fat": 0.1, "protein": 1.1 }
+    }
+  ],
+  "steps": ["Chop vegetables", "Cook and serve"],
+  "equipment": ["Pan"],
+  "notes": ["Adjust salt to taste"]
+}
+
+PUT {{baseUrl}}/api/recipes/<RECIPE_ID>
+Headers:
+  Authorization: Bearer {{token}}
+  Content-Type: application/json
+Body (raw JSON example):
+{
+  "title": "Updated Recipe Title"
+}
+
+DELETE {{baseUrl}}/api/recipes/<RECIPE_ID>
+Headers:
+  Authorization: Bearer {{token}}
+
+========================================
+Tips (Postman)
+========================================
+- Create a Postman Environment with variables:
+  baseUrl = http://localhost:5001
+  token   = (paste JWT here)
+- For protected endpoints, set Authorization header exactly:
+  Authorization: Bearer {{token}}

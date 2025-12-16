@@ -1,0 +1,743 @@
+[
+  {
+    "title": "Tomato Onion Omelette",
+    "description": "Fluffy omelette with tomato and onion.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "International",
+    "dietaryTags": ["vegetarian"],
+    "difficulty": "easy",
+    "cookTimeMinutes": 12,
+    "servingsDefault": 1,
+    "popularity": 65,
+    "ingredients": [
+      { "name": "egg", "quantity": 2, "unit": "piece", "nutritionPerUnit": { "calories": 72, "carbs": 0.4, "fat": 5, "protein": 6.3 } },
+      { "name": "tomato", "quantity": 1, "unit": "piece", "nutritionPerUnit": { "calories": 22, "carbs": 4.8, "fat": 0.2, "protein": 1.1 } },
+      { "name": "onion", "quantity": 0.5, "unit": "piece", "nutritionPerUnit": { "calories": 44, "carbs": 10.3, "fat": 0.1, "protein": 1.2 } },
+      { "name": "olive oil", "quantity": 1, "unit": "tsp", "nutritionPerUnit": { "calories": 40, "carbs": 0, "fat": 4.5, "protein": 0 } }
+    ],
+    "steps": ["Whisk eggs.", "Saute onion and tomato.", "Pour eggs and cook until set."]
+  },
+  {
+    "title": "Avocado Toast",
+    "description": "Creamy avocado toast with lemon.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "International",
+    "dietaryTags": ["vegetarian"],
+    "difficulty": "easy",
+    "cookTimeMinutes": 10,
+    "servingsDefault": 1,
+    "popularity": 80,
+    "ingredients": [
+      { "name": "bread", "quantity": 2, "unit": "slice", "nutritionPerUnit": { "calories": 80, "carbs": 15, "fat": 1.2, "protein": 3 } },
+      { "name": "avocado", "quantity": 0.5, "unit": "piece", "nutritionPerUnit": { "calories": 240, "carbs": 12.8, "fat": 22, "protein": 3 } },
+      { "name": "lemon", "quantity": 0.25, "unit": "piece", "nutritionPerUnit": { "calories": 17, "carbs": 5.4, "fat": 0.2, "protein": 0.6 } }
+    ],
+    "steps": ["Toast bread.", "Mash avocado with lemon.", "Spread and serve."]
+  },
+  {
+    "title": "Chickpea Salad Bowl",
+    "description": "Fresh chickpea salad with cucumber and lemon dressing.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "International",
+    "dietaryTags": ["vegan", "gluten-free"],
+    "difficulty": "easy",
+    "cookTimeMinutes": 15,
+    "servingsDefault": 2,
+    "popularity": 72,
+    "ingredients": [
+      { "name": "chickpeas", "quantity": 250, "unit": "g", "nutritionPerUnit": { "calories": 1.64, "carbs": 0.27, "fat": 0.03, "protein": 0.09 } },
+      { "name": "cucumber", "quantity": 1, "unit": "piece", "nutritionPerUnit": { "calories": 30, "carbs": 7, "fat": 0.2, "protein": 1.3 } },
+      { "name": "tomato", "quantity": 1, "unit": "piece", "nutritionPerUnit": { "calories": 22, "carbs": 4.8, "fat": 0.2, "protein": 1.1 } },
+      { "name": "lemon", "quantity": 0.5, "unit": "piece", "nutritionPerUnit": { "calories": 17, "carbs": 5.4, "fat": 0.2, "protein": 0.6 } }
+    ],
+    "steps": ["Rinse chickpeas.", "Chop vegetables.", "Toss with lemon and olive oil."]
+  },
+  {
+    "title": "Garlic Butter Pasta",
+    "description": "Simple garlic butter pasta with parmesan.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1523986371872-9d3ba2e2f642?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "Italian",
+    "dietaryTags": ["vegetarian"],
+    "difficulty": "easy",
+    "cookTimeMinutes": 20,
+    "servingsDefault": 2,
+    "popularity": 75,
+    "ingredients": [
+      { "name": "pasta", "quantity": 200, "unit": "g", "nutritionPerUnit": { "calories": 3.5, "carbs": 0.7, "fat": 0.01, "protein": 0.12 } },
+      { "name": "butter", "quantity": 2, "unit": "tbsp", "nutritionPerUnit": { "calories": 102, "carbs": 0, "fat": 11.5, "protein": 0.1 } },
+      { "name": "garlic", "quantity": 3, "unit": "clove", "nutritionPerUnit": { "calories": 4, "carbs": 1, "fat": 0, "protein": 0.2 } },
+      { "name": "parmesan", "quantity": 20, "unit": "g", "nutritionPerUnit": { "calories": 4.31, "carbs": 0.04, "fat": 0.29, "protein": 0.38 } }
+    ],
+    "steps": ["Boil pasta.", "Saute garlic in butter.", "Toss pasta and top with parmesan."]
+  },
+  {
+    "title": "Chicken Stir Fry",
+    "description": "Quick stir-fry with chicken and mixed veggies.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1604908554162-45f2d0f8b3b1?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "Asian",
+    "dietaryTags": ["high-protein"],
+    "difficulty": "medium",
+    "cookTimeMinutes": 25,
+    "servingsDefault": 2,
+    "popularity": 78,
+    "ingredients": [
+      { "name": "chicken breast", "quantity": 300, "unit": "g", "nutritionPerUnit": { "calories": 1.65, "carbs": 0, "fat": 0.036, "protein": 0.31 } },
+      { "name": "bell pepper", "quantity": 1, "unit": "piece", "nutritionPerUnit": { "calories": 31, "carbs": 6, "fat": 0.3, "protein": 1 } },
+      { "name": "broccoli", "quantity": 200, "unit": "g", "nutritionPerUnit": { "calories": 0.34, "carbs": 0.07, "fat": 0.004, "protein": 0.028 } },
+      { "name": "soy sauce", "quantity": 2, "unit": "tbsp", "nutritionPerUnit": { "calories": 9, "carbs": 1, "fat": 0, "protein": 1 } }
+    ],
+    "steps": ["Slice chicken.", "Stir-fry chicken.", "Add veggies and soy sauce."]
+  },
+  {
+    "title": "Paneer Tikka Wrap",
+    "description": "Spiced paneer wrapped with veggies.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1604908176997-125f25cc5002?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "Indian",
+    "dietaryTags": ["vegetarian"],
+    "difficulty": "medium",
+    "cookTimeMinutes": 30,
+    "servingsDefault": 2,
+    "popularity": 74,
+    "ingredients": [
+      { "name": "paneer", "quantity": 200, "unit": "g", "nutritionPerUnit": { "calories": 2.65, "carbs": 0.02, "fat": 0.21, "protein": 0.18 } },
+      { "name": "yogurt", "quantity": 100, "unit": "g", "nutritionPerUnit": { "calories": 0.59, "carbs": 0.036, "fat": 0.032, "protein": 0.1 } },
+      { "name": "tortilla", "quantity": 2, "unit": "piece", "nutritionPerUnit": { "calories": 140, "carbs": 24, "fat": 3.5, "protein": 4 } },
+      { "name": "onion", "quantity": 0.5, "unit": "piece", "nutritionPerUnit": { "calories": 44, "carbs": 10.3, "fat": 0.1, "protein": 1.2 } }
+    ],
+    "steps": ["Marinate paneer.", "Grill or pan-sear.", "Assemble wrap with veggies."]
+  },
+  {
+    "title": "Lentil Soup",
+    "description": "Comforting lentil soup with carrots and celery.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "International",
+    "dietaryTags": ["vegan"],
+    "difficulty": "easy",
+    "cookTimeMinutes": 40,
+    "servingsDefault": 4,
+    "popularity": 68,
+    "ingredients": [
+      { "name": "lentils", "quantity": 250, "unit": "g", "nutritionPerUnit": { "calories": 1.16, "carbs": 0.2, "fat": 0.004, "protein": 0.09 } },
+      { "name": "carrot", "quantity": 2, "unit": "piece", "nutritionPerUnit": { "calories": 25, "carbs": 6, "fat": 0.1, "protein": 0.6 } },
+      { "name": "celery", "quantity": 2, "unit": "stalk", "nutritionPerUnit": { "calories": 6, "carbs": 1.2, "fat": 0.1, "protein": 0.3 } },
+      { "name": "onion", "quantity": 1, "unit": "piece", "nutritionPerUnit": { "calories": 44, "carbs": 10.3, "fat": 0.1, "protein": 1.2 } }
+    ],
+    "steps": ["Saute vegetables.", "Add lentils and water.", "Simmer until tender."]
+  },
+  {
+    "title": "Greek Yogurt Parfait",
+    "description": "Yogurt parfait with berries and granola.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "International",
+    "dietaryTags": ["vegetarian"],
+    "difficulty": "easy",
+    "cookTimeMinutes": 5,
+    "servingsDefault": 1,
+    "popularity": 60,
+    "ingredients": [
+      { "name": "greek yogurt", "quantity": 200, "unit": "g", "nutritionPerUnit": { "calories": 0.59, "carbs": 0.036, "fat": 0.032, "protein": 0.1 } },
+      { "name": "berries", "quantity": 100, "unit": "g", "nutritionPerUnit": { "calories": 0.57, "carbs": 0.14, "fat": 0.003, "protein": 0.01 } },
+      { "name": "granola", "quantity": 40, "unit": "g", "nutritionPerUnit": { "calories": 4.5, "carbs": 0.64, "fat": 0.16, "protein": 0.1 } }
+    ],
+    "steps": ["Layer yogurt, berries, and granola.", "Serve chilled."]
+  },
+  {
+    "title": "Tuna Sandwich",
+    "description": "Classic tuna sandwich with lettuce.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "International",
+    "dietaryTags": ["high-protein"],
+    "difficulty": "easy",
+    "cookTimeMinutes": 10,
+    "servingsDefault": 1,
+    "popularity": 55,
+    "ingredients": [
+      { "name": "bread", "quantity": 2, "unit": "slice", "nutritionPerUnit": { "calories": 80, "carbs": 15, "fat": 1.2, "protein": 3 } },
+      { "name": "tuna", "quantity": 120, "unit": "g", "nutritionPerUnit": { "calories": 1.32, "carbs": 0, "fat": 0.01, "protein": 0.29 } },
+      { "name": "mayonnaise", "quantity": 1, "unit": "tbsp", "nutritionPerUnit": { "calories": 94, "carbs": 0.1, "fat": 10, "protein": 0 } },
+      { "name": "lettuce", "quantity": 2, "unit": "leaf", "nutritionPerUnit": { "calories": 1, "carbs": 0.2, "fat": 0, "protein": 0.1 } }
+    ],
+    "steps": ["Mix tuna with mayo.", "Assemble sandwich with lettuce."]
+  },
+  {
+    "title": "Mushroom Risotto",
+    "description": "Creamy risotto with mushrooms.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1604908177522-040cc0a4d700?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "Italian",
+    "dietaryTags": ["vegetarian"],
+    "difficulty": "hard",
+    "cookTimeMinutes": 45,
+    "servingsDefault": 3,
+    "popularity": 58,
+    "ingredients": [
+      { "name": "arborio rice", "quantity": 250, "unit": "g", "nutritionPerUnit": { "calories": 3.6, "carbs": 0.8, "fat": 0.01, "protein": 0.07 } },
+      { "name": "mushroom", "quantity": 200, "unit": "g", "nutritionPerUnit": { "calories": 0.22, "carbs": 0.033, "fat": 0.003, "protein": 0.03 } },
+      { "name": "onion", "quantity": 1, "unit": "piece", "nutritionPerUnit": { "calories": 44, "carbs": 10.3, "fat": 0.1, "protein": 1.2 } },
+      { "name": "parmesan", "quantity": 30, "unit": "g", "nutritionPerUnit": { "calories": 4.31, "carbs": 0.04, "fat": 0.29, "protein": 0.38 } }
+    ],
+    "steps": ["Saute onion and mushrooms.", "Toast rice.", "Add stock gradually and stir."]
+  },
+  {
+    "title": "Veggie Fried Rice",
+    "description": "Fried rice with vegetables and soy sauce.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1604908554027-7a2ed85e8b66?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "Asian",
+    "dietaryTags": ["vegetarian"],
+    "difficulty": "medium",
+    "cookTimeMinutes": 20,
+    "servingsDefault": 2,
+    "popularity": 70,
+    "ingredients": [
+      { "name": "rice", "quantity": 250, "unit": "g", "nutritionPerUnit": { "calories": 1.3, "carbs": 0.28, "fat": 0.003, "protein": 0.027 } },
+      { "name": "carrot", "quantity": 1, "unit": "piece", "nutritionPerUnit": { "calories": 25, "carbs": 6, "fat": 0.1, "protein": 0.6 } },
+      { "name": "peas", "quantity": 100, "unit": "g", "nutritionPerUnit": { "calories": 0.81, "carbs": 0.14, "fat": 0.004, "protein": 0.05 } },
+      { "name": "soy sauce", "quantity": 2, "unit": "tbsp", "nutritionPerUnit": { "calories": 9, "carbs": 1, "fat": 0, "protein": 1 } }
+    ],
+    "steps": ["Stir-fry veggies.", "Add rice.", "Season with soy sauce."]
+  },
+  {
+    "title": "Shakshuka",
+    "description": "Eggs poached in spiced tomato sauce.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1604908177520-b2e0b6e9f6d6?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "International",
+    "dietaryTags": ["vegetarian"],
+    "difficulty": "medium",
+    "cookTimeMinutes": 30,
+    "servingsDefault": 2,
+    "popularity": 69,
+    "ingredients": [
+      { "name": "egg", "quantity": 4, "unit": "piece", "nutritionPerUnit": { "calories": 72, "carbs": 0.4, "fat": 5, "protein": 6.3 } },
+      { "name": "tomato", "quantity": 3, "unit": "piece", "nutritionPerUnit": { "calories": 22, "carbs": 4.8, "fat": 0.2, "protein": 1.1 } },
+      { "name": "onion", "quantity": 1, "unit": "piece", "nutritionPerUnit": { "calories": 44, "carbs": 10.3, "fat": 0.1, "protein": 1.2 } },
+      { "name": "bell pepper", "quantity": 1, "unit": "piece", "nutritionPerUnit": { "calories": 31, "carbs": 6, "fat": 0.3, "protein": 1 } }
+    ],
+    "steps": ["Cook onion and pepper.", "Add tomatoes and spices.", "Crack eggs and simmer."]
+  },
+  {
+    "title": "Banana Peanut Smoothie",
+    "description": "Creamy banana smoothie with peanut butter.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "International",
+    "dietaryTags": ["vegetarian"],
+    "difficulty": "easy",
+    "cookTimeMinutes": 5,
+    "servingsDefault": 1,
+    "popularity": 77,
+    "ingredients": [
+      { "name": "banana", "quantity": 1, "unit": "piece", "nutritionPerUnit": { "calories": 105, "carbs": 27, "fat": 0.3, "protein": 1.3 } },
+      { "name": "milk", "quantity": 250, "unit": "ml", "nutritionPerUnit": { "calories": 0.5, "carbs": 0.05, "fat": 0.02, "protein": 0.03 } },
+      { "name": "peanut butter", "quantity": 1, "unit": "tbsp", "nutritionPerUnit": { "calories": 94, "carbs": 3.2, "fat": 8, "protein": 3.6 } }
+    ],
+    "steps": ["Blend banana, milk, and peanut butter.", "Serve chilled."]
+  },
+  {
+    "title": "Quinoa Veg Bowl",
+    "description": "Quinoa bowl with roasted veggies.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "International",
+    "dietaryTags": ["vegan", "gluten-free"],
+    "difficulty": "easy",
+    "cookTimeMinutes": 25,
+    "servingsDefault": 2,
+    "popularity": 64,
+    "ingredients": [
+      { "name": "quinoa", "quantity": 180, "unit": "g", "nutritionPerUnit": { "calories": 3.68, "carbs": 0.64, "fat": 0.06, "protein": 0.14 } },
+      { "name": "zucchini", "quantity": 1, "unit": "piece", "nutritionPerUnit": { "calories": 33, "carbs": 6, "fat": 0.6, "protein": 2.4 } },
+      { "name": "bell pepper", "quantity": 1, "unit": "piece", "nutritionPerUnit": { "calories": 31, "carbs": 6, "fat": 0.3, "protein": 1 } },
+      { "name": "olive oil", "quantity": 1, "unit": "tbsp", "nutritionPerUnit": { "calories": 119, "carbs": 0, "fat": 13.5, "protein": 0 } }
+    ],
+    "steps": ["Cook quinoa.", "Roast veggies.", "Assemble bowl."]
+  },
+  {
+    "title": "Beef Tacos",
+    "description": "Seasoned beef tacos with salsa.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1552332386-f8dd00dc2f85?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "Mexican",
+    "dietaryTags": [],
+    "difficulty": "medium",
+    "cookTimeMinutes": 25,
+    "servingsDefault": 3,
+    "popularity": 73,
+    "ingredients": [
+      { "name": "ground beef", "quantity": 300, "unit": "g", "nutritionPerUnit": { "calories": 2.5, "carbs": 0, "fat": 0.2, "protein": 0.17 } },
+      { "name": "taco shells", "quantity": 6, "unit": "piece", "nutritionPerUnit": { "calories": 60, "carbs": 8, "fat": 3, "protein": 1 } },
+      { "name": "tomato", "quantity": 2, "unit": "piece", "nutritionPerUnit": { "calories": 22, "carbs": 4.8, "fat": 0.2, "protein": 1.1 } },
+      { "name": "onion", "quantity": 0.5, "unit": "piece", "nutritionPerUnit": { "calories": 44, "carbs": 10.3, "fat": 0.1, "protein": 1.2 } }
+    ],
+    "steps": ["Cook beef with spices.", "Assemble tacos.", "Top with salsa."]
+  },
+  {
+    "title": "Spinach Feta Quesadilla",
+    "description": "Crispy quesadilla stuffed with spinach and feta.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1617196034796-73c6555f1c6a?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "International",
+    "dietaryTags": ["vegetarian"],
+    "difficulty": "easy",
+    "cookTimeMinutes": 15,
+    "servingsDefault": 1,
+    "popularity": 62,
+    "ingredients": [
+      { "name": "tortilla", "quantity": 1, "unit": "piece", "nutritionPerUnit": { "calories": 140, "carbs": 24, "fat": 3.5, "protein": 4 } },
+      { "name": "spinach", "quantity": 80, "unit": "g", "nutritionPerUnit": { "calories": 0.23, "carbs": 0.036, "fat": 0.004, "protein": 0.029 } },
+      { "name": "feta", "quantity": 50, "unit": "g", "nutritionPerUnit": { "calories": 2.64, "carbs": 0.04, "fat": 0.21, "protein": 0.14 } }
+    ],
+    "steps": ["Fill tortilla with spinach and feta.", "Toast on pan until crisp."]
+  },
+  {
+    "title": "Oats Porridge",
+    "description": "Warm oats with milk and honey.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1542444459-db63c1656b13?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "International",
+    "dietaryTags": ["vegetarian"],
+    "difficulty": "easy",
+    "cookTimeMinutes": 8,
+    "servingsDefault": 1,
+    "popularity": 59,
+    "ingredients": [
+      { "name": "oats", "quantity": 60, "unit": "g", "nutritionPerUnit": { "calories": 3.89, "carbs": 0.66, "fat": 0.07, "protein": 0.17 } },
+      { "name": "milk", "quantity": 250, "unit": "ml", "nutritionPerUnit": { "calories": 0.5, "carbs": 0.05, "fat": 0.02, "protein": 0.03 } },
+      { "name": "honey", "quantity": 1, "unit": "tbsp", "nutritionPerUnit": { "calories": 64, "carbs": 17, "fat": 0, "protein": 0 } }
+    ],
+    "steps": ["Simmer oats in milk.", "Top with honey."]
+  },
+  {
+    "title": "Salmon Lemon Bake",
+    "description": "Baked salmon with lemon and herbs.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "International",
+    "dietaryTags": ["high-protein", "gluten-free"],
+    "difficulty": "medium",
+    "cookTimeMinutes": 25,
+    "servingsDefault": 2,
+    "popularity": 66,
+    "ingredients": [
+      { "name": "salmon", "quantity": 300, "unit": "g", "nutritionPerUnit": { "calories": 2.08, "carbs": 0, "fat": 0.13, "protein": 0.2 } },
+      { "name": "lemon", "quantity": 1, "unit": "piece", "nutritionPerUnit": { "calories": 17, "carbs": 5.4, "fat": 0.2, "protein": 0.6 } },
+      { "name": "olive oil", "quantity": 1, "unit": "tbsp", "nutritionPerUnit": { "calories": 119, "carbs": 0, "fat": 13.5, "protein": 0 } }
+    ],
+    "steps": ["Season salmon.", "Bake with lemon.", "Serve warm."]
+  },
+  {
+    "title": "Potato Curry",
+    "description": "Simple potato curry with spices.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1604908177542-1a2f51ac3aa5?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "Indian",
+    "dietaryTags": ["vegan", "gluten-free"],
+    "difficulty": "medium",
+    "cookTimeMinutes": 35,
+    "servingsDefault": 3,
+    "popularity": 71,
+    "ingredients": [
+      { "name": "potato", "quantity": 500, "unit": "g", "nutritionPerUnit": { "calories": 0.77, "carbs": 0.17, "fat": 0.001, "protein": 0.02 } },
+      { "name": "onion", "quantity": 1, "unit": "piece", "nutritionPerUnit": { "calories": 44, "carbs": 10.3, "fat": 0.1, "protein": 1.2 } },
+      { "name": "tomato", "quantity": 2, "unit": "piece", "nutritionPerUnit": { "calories": 22, "carbs": 4.8, "fat": 0.2, "protein": 1.1 } },
+      { "name": "olive oil", "quantity": 1, "unit": "tbsp", "nutritionPerUnit": { "calories": 119, "carbs": 0, "fat": 13.5, "protein": 0 } }
+    ],
+    "steps": ["Saute onion.", "Add potatoes and tomatoes.", "Simmer with spices until tender."]
+  },
+  {
+    "title": "Caprese Salad",
+    "description": "Tomato, mozzarella, basil with olive oil.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1572441710534-680417d58dfc?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "Italian",
+    "dietaryTags": ["vegetarian", "gluten-free"],
+    "difficulty": "easy",
+    "cookTimeMinutes": 10,
+    "servingsDefault": 2,
+    "popularity": 63,
+    "ingredients": [
+      { "name": "tomato", "quantity": 3, "unit": "piece", "nutritionPerUnit": { "calories": 22, "carbs": 4.8, "fat": 0.2, "protein": 1.1 } },
+      { "name": "mozzarella", "quantity": 150, "unit": "g", "nutritionPerUnit": { "calories": 2.8, "carbs": 0.03, "fat": 0.17, "protein": 0.22 } },
+      { "name": "basil", "quantity": 10, "unit": "g", "nutritionPerUnit": { "calories": 0.23, "carbs": 0.027, "fat": 0.004, "protein": 0.032 } },
+      { "name": "olive oil", "quantity": 1, "unit": "tbsp", "nutritionPerUnit": { "calories": 119, "carbs": 0, "fat": 13.5, "protein": 0 } }
+    ],
+    "steps": ["Slice tomato and mozzarella.", "Layer with basil.", "Drizzle olive oil."]
+  },
+  {
+    "title": "Egg Fried Noodles",
+    "description": "Quick noodles tossed with egg and veggies.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1604908554107-985d8a5b4c65?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "Asian",
+    "dietaryTags": [],
+    "difficulty": "medium",
+    "cookTimeMinutes": 18,
+    "servingsDefault": 2,
+    "popularity": 67,
+    "ingredients": [
+      { "name": "noodles", "quantity": 200, "unit": "g", "nutritionPerUnit": { "calories": 3.8, "carbs": 0.75, "fat": 0.02, "protein": 0.12 } },
+      { "name": "egg", "quantity": 2, "unit": "piece", "nutritionPerUnit": { "calories": 72, "carbs": 0.4, "fat": 5, "protein": 6.3 } },
+      { "name": "carrot", "quantity": 1, "unit": "piece", "nutritionPerUnit": { "calories": 25, "carbs": 6, "fat": 0.1, "protein": 0.6 } },
+      { "name": "soy sauce", "quantity": 1, "unit": "tbsp", "nutritionPerUnit": { "calories": 9, "carbs": 1, "fat": 0, "protein": 1 } }
+    ],
+    "steps": ["Boil noodles.", "Scramble eggs.", "Toss everything with soy sauce."]
+  },
+  {
+    "title": "Tofu Coconut Curry",
+    "description": "Creamy coconut curry with tofu and spinach.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1604908177549-4c0cb162d432?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "Asian",
+    "dietaryTags": ["vegan", "gluten-free"],
+    "difficulty": "medium",
+    "cookTimeMinutes": 30,
+    "servingsDefault": 3,
+    "popularity": 61,
+    "ingredients": [
+      { "name": "tofu", "quantity": 300, "unit": "g", "nutritionPerUnit": { "calories": 0.76, "carbs": 0.02, "fat": 0.048, "protein": 0.08 } },
+      { "name": "coconut milk", "quantity": 300, "unit": "ml", "nutritionPerUnit": { "calories": 2.0, "carbs": 0.02, "fat": 0.21, "protein": 0.02 } },
+      { "name": "spinach", "quantity": 120, "unit": "g", "nutritionPerUnit": { "calories": 0.23, "carbs": 0.036, "fat": 0.004, "protein": 0.029 } },
+      { "name": "onion", "quantity": 1, "unit": "piece", "nutritionPerUnit": { "calories": 44, "carbs": 10.3, "fat": 0.1, "protein": 1.2 } }
+    ],
+    "steps": ["Saute onion.", "Add tofu and coconut milk.", "Simmer and add spinach."]
+  },
+  {
+    "title": "Chicken Caesar Salad",
+    "description": "Crisp romaine with chicken and parmesan.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "International",
+    "dietaryTags": ["high-protein"],
+    "difficulty": "easy",
+    "cookTimeMinutes": 15,
+    "servingsDefault": 2,
+    "popularity": 56,
+    "ingredients": [
+      { "name": "chicken breast", "quantity": 250, "unit": "g", "nutritionPerUnit": { "calories": 1.65, "carbs": 0, "fat": 0.036, "protein": 0.31 } },
+      { "name": "lettuce", "quantity": 200, "unit": "g", "nutritionPerUnit": { "calories": 0.15, "carbs": 0.029, "fat": 0.002, "protein": 0.014 } },
+      { "name": "parmesan", "quantity": 20, "unit": "g", "nutritionPerUnit": { "calories": 4.31, "carbs": 0.04, "fat": 0.29, "protein": 0.38 } },
+      { "name": "croutons", "quantity": 40, "unit": "g", "nutritionPerUnit": { "calories": 4.1, "carbs": 0.74, "fat": 0.09, "protein": 0.11 } }
+    ],
+    "steps": ["Cook chicken.", "Toss lettuce with dressing.", "Top with chicken, parmesan, croutons."]
+  },
+  {
+    "title": "Fluffy Pancakes",
+    "description": "Classic pancakes with a hint of vanilla.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1495214783159-3503fd1b572d?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "International",
+    "dietaryTags": ["vegetarian"],
+    "difficulty": "easy",
+    "cookTimeMinutes": 20,
+    "servingsDefault": 2,
+    "popularity": 57,
+    "ingredients": [
+      { "name": "flour", "quantity": 180, "unit": "g", "nutritionPerUnit": { "calories": 3.64, "carbs": 0.76, "fat": 0.01, "protein": 0.1 } },
+      { "name": "egg", "quantity": 1, "unit": "piece", "nutritionPerUnit": { "calories": 72, "carbs": 0.4, "fat": 5, "protein": 6.3 } },
+      { "name": "milk", "quantity": 250, "unit": "ml", "nutritionPerUnit": { "calories": 0.5, "carbs": 0.05, "fat": 0.02, "protein": 0.03 } },
+      { "name": "butter", "quantity": 1, "unit": "tbsp", "nutritionPerUnit": { "calories": 102, "carbs": 0, "fat": 11.5, "protein": 0.1 } }
+    ],
+    "steps": ["Mix batter.", "Cook pancakes on skillet.", "Serve warm."]
+  },
+  {
+    "title": "Black Bean Burrito Bowl",
+    "description": "Bean bowl with rice, corn, and salsa.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "Mexican",
+    "dietaryTags": ["vegan", "gluten-free"],
+    "difficulty": "easy",
+    "cookTimeMinutes": 20,
+    "servingsDefault": 2,
+    "popularity": 65,
+    "ingredients": [
+      { "name": "black beans", "quantity": 240, "unit": "g", "nutritionPerUnit": { "calories": 1.32, "carbs": 0.24, "fat": 0.005, "protein": 0.09 } },
+      { "name": "rice", "quantity": 200, "unit": "g", "nutritionPerUnit": { "calories": 1.3, "carbs": 0.28, "fat": 0.003, "protein": 0.027 } },
+      { "name": "corn", "quantity": 120, "unit": "g", "nutritionPerUnit": { "calories": 0.86, "carbs": 0.19, "fat": 0.01, "protein": 0.03 } },
+      { "name": "tomato", "quantity": 1, "unit": "piece", "nutritionPerUnit": { "calories": 22, "carbs": 4.8, "fat": 0.2, "protein": 1.1 } }
+    ],
+    "steps": ["Warm beans.", "Assemble with rice, corn, salsa."]
+  },
+  {
+    "title": "Coconut Chia Pudding",
+    "description": "Chia pudding made with coconut milk.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1543353071-087092ec393a?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "International",
+    "dietaryTags": ["vegan", "gluten-free"],
+    "difficulty": "easy",
+    "cookTimeMinutes": 10,
+    "servingsDefault": 2,
+    "popularity": 53,
+    "ingredients": [
+      { "name": "chia seeds", "quantity": 40, "unit": "g", "nutritionPerUnit": { "calories": 4.86, "carbs": 0.42, "fat": 0.31, "protein": 0.17 } },
+      { "name": "coconut milk", "quantity": 300, "unit": "ml", "nutritionPerUnit": { "calories": 2.0, "carbs": 0.02, "fat": 0.21, "protein": 0.02 } },
+      { "name": "berries", "quantity": 100, "unit": "g", "nutritionPerUnit": { "calories": 0.57, "carbs": 0.14, "fat": 0.003, "protein": 0.01 } }
+    ],
+    "steps": ["Mix chia with coconut milk.", "Chill until set.", "Top with berries."]
+  },
+  {
+    "title": "Butter Chicken",
+    "description": "Creamy tomato-butter curry with tender chicken.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1604908176997-125f25cc5002?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "Indian",
+    "dietaryTags": ["high-protein"],
+    "difficulty": "medium",
+    "cookTimeMinutes": 40,
+    "servingsDefault": 3,
+    "popularity": 96,
+    "ingredients": [
+      { "name": "chicken breast", "quantity": 450, "unit": "g", "nutritionPerUnit": { "calories": 1.65, "carbs": 0, "fat": 0.036, "protein": 0.31 } },
+      { "name": "tomato", "quantity": 4, "unit": "piece", "nutritionPerUnit": { "calories": 22, "carbs": 4.8, "fat": 0.2, "protein": 1.1 } },
+      { "name": "butter", "quantity": 2, "unit": "tbsp", "nutritionPerUnit": { "calories": 102, "carbs": 0, "fat": 11.5, "protein": 0.1 } },
+      { "name": "cream", "quantity": 120, "unit": "ml", "nutritionPerUnit": { "calories": 3.4, "carbs": 0.03, "fat": 0.36, "protein": 0.02 } }
+    ],
+    "steps": ["Cook chicken.", "Simmer tomato sauce with spices.", "Add butter, cream, and chicken."]
+  },
+  {
+    "title": "Chole Masala",
+    "description": "Punjabi chickpea curry with warm spices.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1604908177542-1a2f51ac3aa5?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "Indian",
+    "dietaryTags": ["vegan", "gluten-free"],
+    "difficulty": "easy",
+    "cookTimeMinutes": 30,
+    "servingsDefault": 3,
+    "popularity": 92,
+    "ingredients": [
+      { "name": "chickpeas", "quantity": 400, "unit": "g", "nutritionPerUnit": { "calories": 1.64, "carbs": 0.27, "fat": 0.03, "protein": 0.09 } },
+      { "name": "onion", "quantity": 1, "unit": "piece", "nutritionPerUnit": { "calories": 44, "carbs": 10.3, "fat": 0.1, "protein": 1.2 } },
+      { "name": "tomato", "quantity": 2, "unit": "piece", "nutritionPerUnit": { "calories": 22, "carbs": 4.8, "fat": 0.2, "protein": 1.1 } },
+      { "name": "garlic", "quantity": 4, "unit": "clove", "nutritionPerUnit": { "calories": 4, "carbs": 1, "fat": 0, "protein": 0.2 } }
+    ],
+    "steps": ["Saute onion and garlic.", "Add tomato and spices.", "Simmer chickpeas until thick."]
+  },
+  {
+    "title": "Masala Dosa",
+    "description": "Crispy dosa with spiced potato filling.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1617196032436-7c8a6d7c25d4?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "Indian",
+    "dietaryTags": ["vegetarian"],
+    "difficulty": "medium",
+    "cookTimeMinutes": 35,
+    "servingsDefault": 2,
+    "popularity": 90,
+    "ingredients": [
+      { "name": "dosa batter", "quantity": 300, "unit": "ml", "nutritionPerUnit": { "calories": 1.2, "carbs": 0.24, "fat": 0.01, "protein": 0.03 } },
+      { "name": "potato", "quantity": 3, "unit": "piece", "nutritionPerUnit": { "calories": 110, "carbs": 26, "fat": 0.1, "protein": 3 } },
+      { "name": "onion", "quantity": 1, "unit": "piece", "nutritionPerUnit": { "calories": 44, "carbs": 10.3, "fat": 0.1, "protein": 1.2 } },
+      { "name": "oil", "quantity": 2, "unit": "tsp", "nutritionPerUnit": { "calories": 40, "carbs": 0, "fat": 4.5, "protein": 0 } }
+    ],
+    "steps": ["Cook spiced potato filling.", "Spread batter thin on pan.", "Fill and fold dosa."]
+  },
+  {
+    "title": "Rajma Chawal",
+    "description": "Red kidney bean curry served with rice.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "Indian",
+    "dietaryTags": ["vegetarian", "gluten-free"],
+    "difficulty": "easy",
+    "cookTimeMinutes": 35,
+    "servingsDefault": 3,
+    "popularity": 88,
+    "ingredients": [
+      { "name": "kidney beans", "quantity": 400, "unit": "g", "nutritionPerUnit": { "calories": 1.27, "carbs": 0.23, "fat": 0.005, "protein": 0.09 } },
+      { "name": "rice", "quantity": 300, "unit": "g", "nutritionPerUnit": { "calories": 1.3, "carbs": 0.28, "fat": 0.003, "protein": 0.027 } },
+      { "name": "tomato", "quantity": 2, "unit": "piece", "nutritionPerUnit": { "calories": 22, "carbs": 4.8, "fat": 0.2, "protein": 1.1 } },
+      { "name": "onion", "quantity": 1, "unit": "piece", "nutritionPerUnit": { "calories": 44, "carbs": 10.3, "fat": 0.1, "protein": 1.2 } }
+    ],
+    "steps": ["Cook rajma with tomato-onion masala.", "Steam rice.", "Serve together."]
+  },
+  {
+    "title": "Chicken Biryani",
+    "description": "Fragrant rice with spiced chicken and herbs.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "Indian",
+    "dietaryTags": ["high-protein"],
+    "difficulty": "hard",
+    "cookTimeMinutes": 55,
+    "servingsDefault": 4,
+    "popularity": 98,
+    "ingredients": [
+      { "name": "rice", "quantity": 450, "unit": "g", "nutritionPerUnit": { "calories": 1.3, "carbs": 0.28, "fat": 0.003, "protein": 0.027 } },
+      { "name": "chicken breast", "quantity": 500, "unit": "g", "nutritionPerUnit": { "calories": 1.65, "carbs": 0, "fat": 0.036, "protein": 0.31 } },
+      { "name": "onion", "quantity": 2, "unit": "piece", "nutritionPerUnit": { "calories": 44, "carbs": 10.3, "fat": 0.1, "protein": 1.2 } },
+      { "name": "yogurt", "quantity": 150, "unit": "g", "nutritionPerUnit": { "calories": 0.59, "carbs": 0.036, "fat": 0.032, "protein": 0.1 } }
+    ],
+    "steps": ["Marinate chicken.", "Parboil rice.", "Layer and cook on low heat."]
+  },
+  {
+    "title": "Hyderabadi Chicken Biryani",
+    "description": "Telangana (Hyderabad) style biryani with aromatic spices and herbs.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "Indian",
+    "mealTypes": ["dinner"],
+    "dietaryTags": ["high-protein"],
+    "difficulty": "hard",
+    "cookTimeMinutes": 60,
+    "servingsDefault": 4,
+    "popularity": 99,
+    "ingredients": [
+      { "name": "rice", "quantity": 450, "unit": "g", "nutritionPerUnit": { "calories": 1.3, "carbs": 0.28, "fat": 0.003, "protein": 0.027 } },
+      { "name": "chicken", "quantity": 600, "unit": "g", "nutritionPerUnit": { "calories": 1.65, "carbs": 0, "fat": 0.036, "protein": 0.31 } },
+      { "name": "yogurt", "quantity": 180, "unit": "g", "nutritionPerUnit": { "calories": 0.59, "carbs": 0.036, "fat": 0.032, "protein": 0.1 } },
+      { "name": "onion", "quantity": 2, "unit": "piece", "nutritionPerUnit": { "calories": 44, "carbs": 10.3, "fat": 0.1, "protein": 1.2 } }
+    ],
+    "steps": ["Marinate chicken with yogurt and spices.", "Parboil rice.", "Layer rice and chicken; dum cook until done."]
+  },
+  {
+    "title": "Mumbai Vada Pav",
+    "description": "Maharashtra (Mumbai) street-style vada pav with spicy potato fritter.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1630384065251-f96b4c85cf6a?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "Indian",
+    "mealTypes": ["snacks"],
+    "dietaryTags": ["vegetarian"],
+    "difficulty": "easy",
+    "cookTimeMinutes": 25,
+    "servingsDefault": 2,
+    "popularity": 90,
+    "ingredients": [
+      { "name": "potato", "quantity": 3, "unit": "piece", "nutritionPerUnit": { "calories": 110, "carbs": 26, "fat": 0.1, "protein": 3 } },
+      { "name": "bread bun", "quantity": 2, "unit": "piece", "nutritionPerUnit": { "calories": 150, "carbs": 28, "fat": 2.5, "protein": 5 } },
+      { "name": "gram flour", "quantity": 120, "unit": "g", "nutritionPerUnit": { "calories": 3.87, "carbs": 0.58, "fat": 0.06, "protein": 0.22 } },
+      { "name": "oil", "quantity": 2, "unit": "tbsp", "nutritionPerUnit": { "calories": 119, "carbs": 0, "fat": 13.5, "protein": 0 } }
+    ],
+    "steps": ["Make spiced potato filling.", "Dip in besan batter and fry.", "Assemble in bun with chutney."]
+  },
+  {
+    "title": "Punjabi Sarson Da Saag",
+    "description": "Punjab classic mustard greens curry (best with makki roti).",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1585936427833-661a38f0d8d4?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "Indian",
+    "mealTypes": ["dinner"],
+    "dietaryTags": ["vegetarian", "gluten-free"],
+    "difficulty": "medium",
+    "cookTimeMinutes": 45,
+    "servingsDefault": 3,
+    "popularity": 84,
+    "ingredients": [
+      { "name": "mustard greens", "quantity": 400, "unit": "g", "nutritionPerUnit": { "calories": 0.27, "carbs": 0.04, "fat": 0.004, "protein": 0.03 } },
+      { "name": "spinach", "quantity": 200, "unit": "g", "nutritionPerUnit": { "calories": 0.23, "carbs": 0.036, "fat": 0.004, "protein": 0.029 } },
+      { "name": "onion", "quantity": 1, "unit": "piece", "nutritionPerUnit": { "calories": 44, "carbs": 10.3, "fat": 0.1, "protein": 1.2 } },
+      { "name": "ghee", "quantity": 1, "unit": "tbsp", "nutritionPerUnit": { "calories": 112, "carbs": 0, "fat": 12.7, "protein": 0 } }
+    ],
+    "steps": ["Boil greens until soft.", "Blend coarsely.", "Temper with onion, spices, and ghee."]
+  },
+  {
+    "title": "Rajasthani Dal Baati Churma",
+    "description": "Rajasthan signature meal: baked baati with dal and sweet churma.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1604908177542-1a2f51ac3aa5?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "Indian",
+    "mealTypes": ["dinner"],
+    "dietaryTags": ["vegetarian"],
+    "difficulty": "hard",
+    "cookTimeMinutes": 70,
+    "servingsDefault": 3,
+    "popularity": 82,
+    "ingredients": [
+      { "name": "wheat flour", "quantity": 300, "unit": "g", "nutritionPerUnit": { "calories": 3.64, "carbs": 0.76, "fat": 0.01, "protein": 0.1 } },
+      { "name": "lentils", "quantity": 250, "unit": "g", "nutritionPerUnit": { "calories": 1.16, "carbs": 0.2, "fat": 0.004, "protein": 0.09 } },
+      { "name": "ghee", "quantity": 2, "unit": "tbsp", "nutritionPerUnit": { "calories": 112, "carbs": 0, "fat": 12.7, "protein": 0 } },
+      { "name": "jaggery", "quantity": 60, "unit": "g", "nutritionPerUnit": { "calories": 3.83, "carbs": 0.98, "fat": 0, "protein": 0 } }
+    ],
+    "steps": ["Prepare and bake baati.", "Cook dal with spices.", "Make churma with ghee and jaggery."]
+  },
+  {
+    "title": "Gujarati Khaman Dhokla",
+    "description": "Gujarat favorite steamed gram-flour snack with tempering.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1587703764645-efdb22b1d8dc?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "Indian",
+    "mealTypes": ["snacks"],
+    "dietaryTags": ["vegetarian"],
+    "difficulty": "easy",
+    "cookTimeMinutes": 20,
+    "servingsDefault": 3,
+    "popularity": 81,
+    "ingredients": [
+      { "name": "gram flour", "quantity": 200, "unit": "g", "nutritionPerUnit": { "calories": 3.87, "carbs": 0.58, "fat": 0.06, "protein": 0.22 } },
+      { "name": "yogurt", "quantity": 100, "unit": "g", "nutritionPerUnit": { "calories": 0.59, "carbs": 0.036, "fat": 0.032, "protein": 0.1 } },
+      { "name": "oil", "quantity": 1, "unit": "tbsp", "nutritionPerUnit": { "calories": 119, "carbs": 0, "fat": 13.5, "protein": 0 } },
+      { "name": "mustard seeds", "quantity": 1, "unit": "tsp", "nutritionPerUnit": { "calories": 5, "carbs": 0.3, "fat": 0.4, "protein": 0.3 } }
+    ],
+    "steps": ["Prepare batter.", "Steam until fluffy.", "Add mustard tempering and serve."]
+  },
+  {
+    "title": "Bengali Machher Jhol",
+    "description": "West Bengal light fish curry with mustard and spices.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1546069901-5ec6a79120b3?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "Indian",
+    "mealTypes": ["dinner"],
+    "dietaryTags": ["high-protein", "gluten-free"],
+    "difficulty": "medium",
+    "cookTimeMinutes": 35,
+    "servingsDefault": 3,
+    "popularity": 80,
+    "ingredients": [
+      { "name": "fish", "quantity": 450, "unit": "g", "nutritionPerUnit": { "calories": 1.2, "carbs": 0, "fat": 0.05, "protein": 0.2 } },
+      { "name": "potato", "quantity": 2, "unit": "piece", "nutritionPerUnit": { "calories": 110, "carbs": 26, "fat": 0.1, "protein": 3 } },
+      { "name": "tomato", "quantity": 2, "unit": "piece", "nutritionPerUnit": { "calories": 22, "carbs": 4.8, "fat": 0.2, "protein": 1.1 } },
+      { "name": "mustard oil", "quantity": 1, "unit": "tbsp", "nutritionPerUnit": { "calories": 119, "carbs": 0, "fat": 13.5, "protein": 0 } }
+    ],
+    "steps": ["Lightly fry fish.", "Cook gravy with potato and spices.", "Simmer fish in curry and serve."]
+  },
+  {
+    "title": "Kerala Appam With Stew",
+    "description": "Kerala comfort: soft appam served with coconut vegetable stew.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1550308985-628f5a57b1f7?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "Indian",
+    "mealTypes": ["breakfast"],
+    "dietaryTags": ["vegetarian", "gluten-free"],
+    "difficulty": "medium",
+    "cookTimeMinutes": 30,
+    "servingsDefault": 2,
+    "popularity": 78,
+    "ingredients": [
+      { "name": "rice flour", "quantity": 250, "unit": "g", "nutritionPerUnit": { "calories": 3.66, "carbs": 0.8, "fat": 0.01, "protein": 0.06 } },
+      { "name": "coconut milk", "quantity": 300, "unit": "ml", "nutritionPerUnit": { "calories": 2.0, "carbs": 0.02, "fat": 0.21, "protein": 0.02 } },
+      { "name": "carrot", "quantity": 1, "unit": "piece", "nutritionPerUnit": { "calories": 25, "carbs": 6, "fat": 0.1, "protein": 0.6 } },
+      { "name": "potato", "quantity": 2, "unit": "piece", "nutritionPerUnit": { "calories": 110, "carbs": 26, "fat": 0.1, "protein": 3 } }
+    ],
+    "steps": ["Make appam batter and cook appams.", "Simmer veggies in coconut milk.", "Serve appam with stew."]
+  },
+  {
+    "title": "Tamil Nadu Idli Sambar",
+    "description": "Tamil Nadu staple breakfast: fluffy idli with sambar.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1586202905707-cc2263d0404d?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "Indian",
+    "mealTypes": ["breakfast"],
+    "dietaryTags": ["vegetarian"],
+    "difficulty": "easy",
+    "cookTimeMinutes": 25,
+    "servingsDefault": 2,
+    "popularity": 83,
+    "ingredients": [
+      { "name": "idli batter", "quantity": 400, "unit": "ml", "nutritionPerUnit": { "calories": 1.2, "carbs": 0.24, "fat": 0.01, "protein": 0.03 } },
+      { "name": "lentils", "quantity": 150, "unit": "g", "nutritionPerUnit": { "calories": 1.16, "carbs": 0.2, "fat": 0.004, "protein": 0.09 } },
+      { "name": "tomato", "quantity": 1, "unit": "piece", "nutritionPerUnit": { "calories": 22, "carbs": 4.8, "fat": 0.2, "protein": 1.1 } },
+      { "name": "tamarind", "quantity": 15, "unit": "g", "nutritionPerUnit": { "calories": 2.39, "carbs": 0.62, "fat": 0.006, "protein": 0.028 } }
+    ],
+    "steps": ["Steam idlis.", "Cook sambar with lentils and veggies.", "Serve hot."]
+  },
+  {
+    "title": "Karnataka Bisi Bele Bath",
+    "description": "Karnataka one-pot rice and lentils with spice mix.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1547592166-3ac247737a73?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "Indian",
+    "mealTypes": ["lunch"],
+    "dietaryTags": ["vegetarian", "gluten-free"],
+    "difficulty": "easy",
+    "cookTimeMinutes": 35,
+    "servingsDefault": 3,
+    "popularity": 76,
+    "ingredients": [
+      { "name": "rice", "quantity": 300, "unit": "g", "nutritionPerUnit": { "calories": 1.3, "carbs": 0.28, "fat": 0.003, "protein": 0.027 } },
+      { "name": "lentils", "quantity": 200, "unit": "g", "nutritionPerUnit": { "calories": 1.16, "carbs": 0.2, "fat": 0.004, "protein": 0.09 } },
+      { "name": "carrot", "quantity": 1, "unit": "piece", "nutritionPerUnit": { "calories": 25, "carbs": 6, "fat": 0.1, "protein": 0.6 } },
+      { "name": "ghee", "quantity": 1, "unit": "tbsp", "nutritionPerUnit": { "calories": 112, "carbs": 0, "fat": 12.7, "protein": 0 } }
+    ],
+    "steps": ["Cook rice and dal together.", "Add veggies and spice mix.", "Finish with ghee and serve."]
+  },
+  {
+    "title": "Lucknowi Tunday Kebab",
+    "description": "Uttar Pradesh (Lucknow) famous melt-in-mouth kebabs.",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1606313564200-e75d5e27a99d?auto=format&fit=crop&w=1200&q=60",
+    "cuisine": "Indian",
+    "mealTypes": ["dinner"],
+    "dietaryTags": ["high-protein"],
+    "difficulty": "medium",
+    "cookTimeMinutes": 35,
+    "servingsDefault": 3,
+    "popularity": 79,
+    "ingredients": [
+      { "name": "minced meat", "quantity": 500, "unit": "g", "nutritionPerUnit": { "calories": 2.5, "carbs": 0, "fat": 0.2, "protein": 0.17 } },
+      { "name": "onion", "quantity": 1, "unit": "piece", "nutritionPerUnit": { "calories": 44, "carbs": 10.3, "fat": 0.1, "protein": 1.2 } },
+      { "name": "ginger", "quantity": 10, "unit": "g", "nutritionPerUnit": { "calories": 0.8, "carbs": 0.18, "fat": 0.008, "protein": 0.018 } },
+      { "name": "oil", "quantity": 1, "unit": "tbsp", "nutritionPerUnit": { "calories": 119, "carbs": 0, "fat": 13.5, "protein": 0 } }
+    ],
+    "steps": ["Mix minced meat with spices.", "Shape patties.", "Shallow fry until cooked and browned."]
+  }
+]
