@@ -130,13 +130,13 @@ Base URL (dev): `http://localhost:5001/api`
 
 For detailed request/response examples, see `API_POSTMAN_TESTING_GUIDE.txt`.
 
-## 🖼️ Screenshots
-
 ### 📸 Application Screenshots
 
-```md
+![](https://github.com/Whatisthissam/ChefMate/blob/main/Ui-Images/Screenshot%202025-12-25%20at%202.34.19%E2%80%AFPM.png?raw=true)
+![](https://github.com/Whatisthissam/ChefMate/blob/main/Ui-Images/Screenshot%202025-12-25%20at%202.35.18%E2%80%AFPM.png?raw=true)
+![](https://github.com/Whatisthissam/ChefMate/blob/main/Ui-Images/Screenshot%202025-12-25%20at%202.34.55%E2%80%AFPM.png?raw=true)
+![](https://github.com/Whatisthissam/ChefMate/blob/main/Ui-Images/Screenshot%202025-12-25%20at%202.42.05%E2%80%AFPM.png?raw=true)
 
-```
 
 ## 🔒 Security Notes
 
