@@ -8,7 +8,7 @@ export const authRouter = express.Router();
 
 function signToken(userId) {
   return jwt.sign({ sub: userId }, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_EXPIRES_IN || '7d',
+    expiresIn: process.env.JWT_EXPIRES_IN || '17d',
   });
 }
 
@@ -17,7 +17,7 @@ authRouter.post(
   [
     body('name').isString().trim().isLength({ min: 2 }),
     body('email').isEmail().normalizeEmail(),
-    body('password').isString().isLength({ min: 6 }),
+    body('password').isString().isLength({ min: 6 }).withMessage('Password must be at least 6 characters'),
   ],
   async (req, res, next) => {
     try {

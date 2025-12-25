@@ -1,0 +1,436 @@
+ChefMate Viva Notes — Backend (Node.js + Express)
+
+Project context (backend)
+- Folder: server/
+- Runtime: Node.js (ESM modules enabled with "type": "module")
+- Framework: Express.js
+- Database: MongoDB via Mongoose
+- Auth: JWT (jsonwebtoken) + password hashing (bcryptjs)
+- Validation: express-validator
+- Logging: morgan
+- CORS: cors
+- Realtime: Socket.IO (server emits trending updates)
+
+How to explain the backend in 20 seconds
+- “This is a Node + Express REST API connected to MongoDB using Mongoose. Users can register/login and receive a JWT token. Protected routes use middleware to verify the token. The API supports recipe search and trending, plus saving recipes and publishing user recipes. Socket.IO pushes trending updates to clients in real time.”
+
+============================================================
+1) Node.js concepts used
+
+Topic: Node.js runtime
+- Layman explanation:
+  - Node lets JavaScript run on the server, so we can build APIs and talk to the database.
+- Where used:
+  - Entire server folder
+
+Topic: Environment variables (.env)
+- Layman explanation:
+  - Sensitive settings (DB URL, JWT secret) are not hardcoded; they are read from environment variables.
+- Where used:
+  - server/src/index.js uses `import 'dotenv/config'`
+  - server/src/config/db.js expects `process.env.MONGODB_URI`
+  - server/src/middleware/auth.js expects `process.env.JWT_SECRET`
+
+Topic: ES Modules (import/export)
+- Layman explanation:
+  - Instead of `require()`, you use `import`/`export` syntax.
+- Where used:
+  - All server/src/*.js files
+  - server/package.json has "type": "module"
+
+Topic: Node core modules (fs, path)
+- Layman explanation:
+  - Node provides built-in modules like `fs` (file system) and `path` (safe path joining). You use them in your seed script to read recipe JSON from disk.
+- Where used:
+  - server/seed/seed.js (`fs.readFileSync`, `path.join`)
+
+Topic: HTTP server
+- Layman explanation:
+  - Express app is used by an HTTP server; Socket.IO attaches to that same server.
+- Where used:
+  - server/src/index.js uses `http.createServer(app)`
+
+Topic: Port configuration + fallback (handling EADDRINUSE)
+- Layman explanation:
+  - Sometimes the default port is already busy. Your server tries the next ports until it finds a free one.
+- Where used:
+  - server/src/index.js (`listenWithFallback`, checks `err.code === 'EADDRINUSE'`)
+
+============================================================
+2) Express.js concepts used
+
+Topic: Express app
+- Layman explanation:
+  - Express is like a “traffic controller” for HTTP requests. It decides which code runs for which URL.
+- Where used:
+  - App creation:
+    - server/src/app.js (`createApp()`)
+
+Topic: Middleware (app.use)
+- Layman explanation:
+  - Middleware is a function that runs before the route handler. It can read/modify request/response or stop the request.
+- Where used:
+  - JSON parsing middleware:
+    - `app.use(express.json({ limit: '1mb' }))` in server/src/app.js
+  - Request logging:
+    - `app.use(morgan('dev'))` in server/src/app.js
+  - CORS:
+    - `app.use(cors(...))` in server/src/app.js
+  - Error middleware:
+    - `app.use(notFound)` and `app.use(errorHandler)` in server/src/app.js
+
+Topic: Routing (express.Router)
+- Layman explanation:
+  - Routers help split API endpoints into separate files.
+- Where used:
+  - server/src/routes/auth.js
+  - server/src/routes/recipes.js
+  - server/src/routes/users.js
+  - server/src/routes/userRecipes.js
+  - Mounted in server/src/app.js:
+    - `/api/auth`
+    - `/api/recipes`
+    - `/api/users`
+    - `/api/user-recipes`
+
+Topic: Route handlers (req, res, next)
+- Layman explanation:
+  - `req` has request info (query, body, headers). `res` is used to send response. `next(err)` forwards errors to error handler.
+- Where used:
+  - Everywhere in routes (try/catch with `next(err)`)
+
+Topic: Status codes
+- Layman explanation:
+  - HTTP codes tell the client what happened.
+- Where used (examples):
+  - 201 Created: register, create recipe, save recipe
+  - 400 Bad Request: validation errors
+  - 401 Unauthorized: missing/invalid token, invalid login
+  - 403 Forbidden: user not owner / not admin
+  - 404 Not Found: recipe not found
+  - 409 Conflict: email already in use
+
+============================================================
+3) Authentication and Authorization
+
+Topic: Password hashing (bcryptjs)
+- Layman explanation:
+  - We never store plain passwords. We store a hashed version so even if DB leaks, passwords are protected.
+- Where used:
+  - Register hashes password:
+    - server/src/routes/auth.js (`bcrypt.hash(password, 10)`)
+  - Login compares password:
+    - server/src/routes/auth.js (`bcrypt.compare`)
+
+Topic: JWT (JSON Web Token)
+- Layman explanation:
+  - After login/register, server gives a signed token. Client sends it with every protected request. Server verifies token signature to identify user.
+- Where used:
+  - Signing token:
+    - `jwt.sign({ sub: userId }, JWT_SECRET, { expiresIn })` in server/src/routes/auth.js
+  - Verifying token:
+    - `jwt.verify(token, JWT_SECRET)` in server/src/middleware/auth.js
+
+Topic: Auth middleware (requireAuth)
+- Layman explanation:
+  - Middleware checks `Authorization: Bearer <token>`, verifies it, loads user from DB, and sets `req.user`.
+- Where used:
+  - Defined: server/src/middleware/auth.js
+  - Used to protect routes:
+    - server/src/routes/users.js
+    - server/src/routes/userRecipes.js
+    - server/src/routes/recipes.js (POST/PUT/DELETE)
+
+Topic: Authorization (owner/admin check)
+- Layman explanation:
+  - Even if you are logged in, you can only delete your own recipe unless you’re admin.
+- Where used:
+  - server/src/routes/recipes.js DELETE `/:id`
+  - server/src/routes/userRecipes.js DELETE `/:userRecipeId`
+
+============================================================
+4) Validation and input checking
+
+Topic: express-validator
+- Layman explanation:
+  - It validates request body fields to prevent invalid data (like missing title or invalid email).
+- Where used:
+  - Register + login:
+    - server/src/routes/auth.js
+  - Create/update recipe:
+    - server/src/routes/recipes.js
+  - Save recipe id:
+    - server/src/routes/users.js
+  - Create user recipe:
+    - server/src/routes/userRecipes.js
+
+Topic: validationResult
+- Layman explanation:
+  - After validators run, `validationResult(req)` collects errors. If errors exist, you return 400.
+- Where used:
+  - All routes that validate input
+
+============================================================
+5) MongoDB + Mongoose (Database)
+
+Topic: Mongoose connection
+- Layman explanation:
+  - Connect server to MongoDB using a connection string.
+- Where used:
+  - server/src/config/db.js (`connectDB`)
+  - Called at startup in server/src/index.js
+
+Topic: Schemas and Models
+- Layman explanation:
+  - A schema defines the structure of documents; a model gives functions to create/find/update in MongoDB.
+
+Model: User
+- Where used:
+  - server/src/models/User.js
+- Fields:
+  - name, email, passwordHash, isAdmin, savedRecipes[]
+
+Model: Recipe
+- Where used:
+  - server/src/models/Recipe.js
+- Key fields:
+  - title, description, cuisine, mealTypes[], dietaryTags[], difficulty, cookTimeMinutes, servingsDefault, popularity
+  - ingredients[] (nested schema) + nutritionPerUnit
+  - steps[] and detailedSteps[]
+  - ingredientNames[] (normalized for search)
+
+Model: UserRecipe (published recipes mapping)
+- Where used:
+  - server/src/models/UserRecipe.js
+- Purpose:
+  - Tracks which user published which recipe and stores snapshot info.
+
+Topic: Queries (find, findById, findByIdAndUpdate)
+- Layman explanation:
+  - Query the database to get or modify documents.
+- Where used:
+  - Recipe search/trending/details:
+    - server/src/routes/recipes.js
+  - Get saved recipes:
+    - server/src/routes/users.js
+  - Get published recipes:
+    - server/src/routes/userRecipes.js
+
+Topic: Projection (select)
+- Layman explanation:
+  - Only return needed fields to reduce payload.
+- Where used:
+  - Many endpoints use `.select('...')` in recipes.js
+
+Topic: Lean queries (.lean())
+- Layman explanation:
+  - Returns plain JS objects (faster) instead of Mongoose documents.
+- Where used:
+  - recipes.js, userRecipes.js, users.js
+
+Topic: populate
+- Layman explanation:
+  - Replace a referenced ObjectId with the actual document data.
+- Where used:
+  - user saved recipes:
+    - server/src/routes/users.js (`populate('savedRecipes', ...)`)
+  - user published recipes list:
+    - server/src/routes/userRecipes.js (`populate('recipeId', ...)`)
+
+Topic: Middleware hooks in schema (pre save / pre insertMany)
+- Layman explanation:
+  - Run logic automatically before saving data. Here it normalizes ingredient names for faster search.
+- Where used:
+  - server/src/models/Recipe.js
+
+Topic: Aggregation pipeline
+- Layman explanation:
+  - MongoDB can transform data in steps. Here you used it to suggest ingredient names.
+- Where used:
+  - server/src/routes/recipes.js GET `/ingredients/suggest`
+    - `$unwind`, `$match`, `$group`, `$sort`, `$limit`, `$project`
+
+============================================================
+6) Core API features (endpoints)
+
+Health
+- GET `/api/health`
+- Where: server/src/app.js
+
+Auth
+- POST `/api/auth/register`
+  - Validates inputs
+  - Hashes password
+  - Creates user
+  - Returns JWT token
+- POST `/api/auth/login`
+  - Validates inputs
+  - Finds user by email
+  - Compares password hash
+  - Returns JWT token
+- Where: server/src/routes/auth.js
+
+Recipes
+- GET `/api/recipes/search?ingredients=...&difficulty=...&cuisine=...&dietary=...&sort=best|popular|time`
+  - Normalizes ingredients list
+  - Uses Mongo query on ingredientNames with `$in`
+  - Ranks results with custom score
+  - Returns top results
+- GET `/api/recipes/trending?cuisine=...&limit=...`
+- GET `/api/recipes/by-meal?meal=...&limit=...`
+- GET `/api/recipes/ingredients/suggest?q=...`
+- GET `/api/recipes/:id`
+  - Returns recipe + computed nutrition
+- POST `/api/recipes` (protected)
+- PUT `/api/recipes/:id` (protected)
+- DELETE `/api/recipes/:id` (protected + owner/admin)
+- Where: server/src/routes/recipes.js
+
+Users
+- GET `/api/users/me` (protected)
+- GET `/api/users/me/saved` (protected)
+- POST `/api/users/me/saved` (protected)
+- DELETE `/api/users/me/saved/:recipeId` (protected)
+- Where: server/src/routes/users.js
+
+User Recipes (publish your own)
+- POST `/api/user-recipes` (protected)
+- GET `/api/user-recipes/me` (protected)
+- DELETE `/api/user-recipes/:userRecipeId` (protected + owner/admin)
+- Where: server/src/routes/userRecipes.js
+
+============================================================
+7) Search + ranking logic (custom backend logic)
+
+Topic: Input normalization
+- Layman explanation:
+  - Convert ingredient list to lowercase, trimmed, unique so search behaves consistently.
+- Where used:
+  - server/src/utils/searchRank.js (`normalizeIngredientList`)
+
+Topic: Ranking / scoring
+- Layman explanation:
+  - If a recipe matches more of your ingredients and misses fewer, it should rank higher. Popularity gives a small boost.
+- Where used:
+  - server/src/utils/searchRank.js (`scoreRecipe`)
+  - Called in search endpoints:
+    - server/src/routes/recipes.js
+    - server/src/index.js (Socket.IO live search)
+
+Topic: Nutrition calculation
+- Layman explanation:
+  - Calculates calories/macros totals from ingredient quantities, then scales per serving.
+- Where used:
+  - server/src/utils/nutrition.js (`computeNutritionTotals`)
+  - Used in recipes endpoints:
+    - server/src/routes/recipes.js
+    - server/src/index.js (Socket.IO live search)
+
+============================================================
+8) Error handling
+
+Topic: Central error handler middleware
+- Layman explanation:
+  - If a route calls `next(err)`, Express forwards it to error middleware to return a clean JSON error.
+- Where used:
+  - server/src/middleware/error.js
+  - wired in server/src/app.js
+
+Topic: 404 handler
+- Layman explanation:
+  - If no route matched, return JSON 404.
+- Where used:
+  - server/src/middleware/error.js (`notFound`)
+
+============================================================
+9) CORS (Cross-Origin Resource Sharing)
+
+Topic: CORS config
+- Layman explanation:
+  - Browsers block cross-origin calls unless server allows it. You configured allowed origins and also allow localhost.
+- Where used:
+  - server/src/app.js
+
+============================================================
+10) Realtime / Socket.IO (backend side)
+
+Topic: Socket.IO server
+- Layman explanation:
+  - Server can push events to clients without the client constantly asking.
+- Where used:
+  - server/src/index.js
+
+Events you used
+- On connection:
+  - emits `trending:connected`
+- Live search:
+  - client can emit `search:query`
+  - server responds with `search:results`
+- Trending ticker:
+  - server emits `trending:update` every 10 seconds with top recipes
+
+============================================================
+11) Seeding / sample data (used in this project)
+
+Topic: Seed script
+- Layman explanation:
+  - A seed script fills the database with sample users and recipes so the app has data immediately for demos/testing.
+- Where used:
+  - server/seed/seed.js (script: `npm run seed`)
+
+Topic: insertMany vs save middleware
+- Layman explanation:
+  - `insertMany` is faster for bulk insert, but it does not trigger normal `save` hooks. Your code accounts for that by setting `ingredientNames` in a `pre('insertMany')` hook.
+- Where used:
+  - Bulk insert:
+    - server/seed/seed.js (`Recipe.insertMany(enriched)`)
+  - Hook:
+    - server/src/models/Recipe.js (`pre('insertMany', ...)`)
+
+============================================================
+12) Testing (used in this project)
+
+Topic: Jest (test runner)
+- Layman explanation:
+  - Jest runs automated tests so you can confirm your API works as expected.
+- Where used:
+  - Config:
+    - server/jest.config.js
+  - Tests live in:
+    - server/tests/
+
+Topic: Supertest (HTTP testing for Express)
+- Layman explanation:
+  - Supertest can call your Express app like a client (GET/POST) without running the server on a real port.
+- Where used:
+  - server/tests/recipes.search.test.js
+
+Topic: mongodb-memory-server (in-memory MongoDB for tests)
+- Layman explanation:
+  - It spins up a temporary MongoDB in memory for tests, so tests don’t touch your real database.
+- Where used:
+  - server/tests/recipes.search.test.js
+
+Topic: Test lifecycle hooks
+- Layman explanation:
+  - `beforeAll` sets up DB and data. `afterAll` cleans up and disconnects.
+- Where used:
+  - server/tests/recipes.search.test.js
+
+============================================================
+13) Viva-style Q&A (quick answers)
+
+- Q: Why Express?
+  A: “It’s a lightweight framework to build REST APIs quickly with middleware and routing.”
+
+- Q: What is middleware?
+  A: “A function that runs before route handler; used for auth, logging, parsing JSON, CORS, and error handling.”
+
+- Q: Why JWT?
+  A: “Stateless authentication. Server doesn’t store sessions; token proves identity.”
+
+- Q: Why bcrypt?
+  A: “To hash passwords securely; never store plain passwords.”
+
+- Q: Why Mongoose?
+  A: “Schema-based modeling and convenient queries for MongoDB.”

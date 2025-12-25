@@ -1,0 +1,369 @@
+ChefMate Viva Notes — Frontend (React)
+
+Project context (frontend)
+- Folder: client/
+- Tooling: Vite (dev server + build)
+- UI: React 18 + TailwindCSS, Radix UI components, Lucide icons
+- Routing: react-router-dom
+- Realtime: socket.io-client (trending ticker)
+
+Extra tooling/details actually used in code
+- React Strict Mode is enabled at the root
+- Vite environment variables are used via `import.meta.env`
+- Tailwind is compiled from `@tailwind base/components/utilities` and custom CSS animations are in index.css
+
+How to explain the frontend in 20 seconds
+- “This is a React single-page application (SPA). It uses React Router for page navigation, Context API to keep login + theme state globally, and it calls my Node/Express REST APIs using fetch. I also added Socket.IO on the client to receive live trending updates.”
+
+============================================================
+1) React basics used in this project
+
+Topic: Components (Functional Components)
+- Subtopics:
+  - JSX
+  - Props
+  - Reusable UI components
+- Layman explanation:
+  - A component is like a “reusable block” of UI. You can pass data into it using props, and it returns what should be shown on the screen.
+- Where used:
+  - App wrapper + routes: client/src/App.jsx
+  - Pages: client/src/pages/*
+  - Reusable components: client/src/components/*
+
+Topic: JSX (JavaScript + HTML mix)
+- Layman explanation:
+  - JSX is a syntax that lets you write UI that looks like HTML inside JavaScript. React reads it and creates DOM elements.
+- Where used:
+  - Every .jsx file (pages and components)
+
+Topic: Props (passing data from parent to child)
+- Layman explanation:
+  - Props are like “function arguments” for components. Parent component sends values and callbacks to child component.
+- Where used:
+  - Recipe card: client/src/components/recipes/RecipeCard.jsx
+    - Receives `recipe`, `saved`, `onToggleSave`, `onOpen`, `onDelete`
+  - Ingredient search box: client/src/components/search/IngredientSearchBox.jsx
+    - Receives `value`, `onChange`, `onSubmit`, etc.
+  - Filters bar: client/src/components/search/FiltersBar.jsx
+    - Receives `filters`, `setFilters`
+
+============================================================
+2) React Hooks used (VERY important for viva)
+
+Topic: Hooks (React’s built-in functions for state + lifecycle)
+- Layman explanation:
+  - Hooks let functional components “remember values” (state) and “run code at certain times” (effects), without writing class components.
+
+Subtopic: useState
+- Layman explanation:
+  - `useState` is used when the UI needs to remember something that changes (like form inputs, loading status, list of items). When state changes, React re-renders the component.
+- Where used (examples):
+  - Login/Register input fields and error handling:
+    - client/src/pages/LoginPage.jsx
+    - client/src/pages/RegisterPage.jsx
+  - Search query, filters, search results:
+    - client/src/pages/SearchPage.jsx
+  - Theme setting:
+    - client/src/state/ThemeContext.jsx
+  - Auth token + user:
+    - client/src/state/AuthContext.jsx
+  - Modal/open states:
+    - client/src/components/recipes/RecipeModal.jsx
+  - Suggestions dropdown for ingredient input:
+    - client/src/components/search/IngredientSearchBox.jsx
+
+Subtopic: useEffect
+- Layman explanation:
+  - `useEffect` runs “after the screen renders”. It’s used for side effects like API calls, event listeners, timers, and subscriptions. You can also return a cleanup function.
+- Patterns you used:
+  - Fetch data on page load or when a dependency changes
+  - Cleanup with an `ignore` flag to avoid setting state after unmount
+  - Debounce with `setTimeout` for smoother API calls
+- Where used:
+  - Load logged-in user details when token changes:
+    - client/src/state/AuthContext.jsx
+  - Apply theme to `<html>` and store in localStorage:
+    - client/src/state/ThemeContext.jsx
+  - Load search results when URL query changes:
+    - client/src/pages/SearchPage.jsx
+  - Load trending recipes when cuisine changes:
+    - client/src/pages/TrendingPage.jsx
+  - Load recipe details by route param `id`:
+    - client/src/pages/RecipeDetailsPage.jsx
+  - Socket.IO connect + cleanup disconnect:
+    - client/src/components/trending/TrendingTicker.jsx
+  - Click outside to close profile dropdown:
+    - client/src/components/layout/AppShell.jsx
+
+Subtopic: useMemo
+- Layman explanation:
+  - `useMemo` is used to avoid re-calculating expensive values on every render. It “remembers” a computed value until dependencies change.
+- Where used:
+  - Compute `canSearch` based on ingredients string:
+    - client/src/pages/HomePage.jsx, client/src/pages/SearchPage.jsx
+  - Parse URL query params once per change:
+    - client/src/pages/SearchPage.jsx
+  - Pre-list options arrays (like cuisines / categories):
+    - client/src/pages/TrendingPage.jsx, client/src/pages/HomePage.jsx
+  - Compute derived values like user initials:
+    - client/src/components/layout/AppShell.jsx
+  - Compute nutrition totals when recipe or servings changes:
+    - client/src/pages/RecipeDetailsPage.jsx
+    - client/src/components/recipes/RecipeModal.jsx
+
+Subtopic: useContext + createContext (Context API)
+- Layman explanation:
+  - Context is like “global shared state” so you don’t have to pass props through many layers. Example: login token and theme used everywhere.
+- Where used:
+  - Auth context (token + user + logout):
+    - client/src/state/AuthContext.jsx
+  - Theme context (light/dark):
+    - client/src/state/ThemeContext.jsx
+  - Providers wrapped at root:
+    - client/src/main.jsx
+
+Subtopic: useRef
+- Layman explanation:
+  - `useRef` stores a value that does not cause re-render when it changes. Common uses: referencing DOM elements or storing “last value”.
+- Where used:
+  - Detect outside click for profile dropdown menu:
+    - client/src/components/layout/AppShell.jsx
+  - Track last query to avoid showing stale suggestions:
+    - client/src/components/search/IngredientSearchBox.jsx
+
+============================================================
+3) React Router (SPA navigation)
+
+Topic: Client-side routing with react-router-dom
+- Layman explanation:
+  - In an SPA, the browser doesn’t reload full pages. React Router changes the URL and shows different components for different paths.
+
+Subtopic: BrowserRouter
+- Where used:
+  - client/src/main.jsx
+
+Subtopic: Routes + Route
+- Where used:
+  - client/src/App.jsx
+  - Routes you have:
+    - `/` Home
+    - `/search` search page with query params
+    - `/trending`
+    - `/categories/:meal` dynamic category
+    - `/recipes/:id` dynamic recipe details
+    - `/login`, `/register`
+    - `/saved`, `/add-recipe`, `/my-recipes`, `/profile`
+
+Subtopic: useNavigate
+- Layman explanation:
+  - Programmatically change pages (like redirect after login).
+- Where used:
+  - Login/Register redirect:
+    - client/src/pages/LoginPage.jsx, RegisterPage.jsx
+  - Open recipe details on click:
+    - many pages call `navigate(`/recipes/${id}`)`
+
+Subtopic: useParams
+- Layman explanation:
+  - Reads URL variables (like the recipe id from `/recipes/:id`).
+- Where used:
+  - Recipe id: client/src/pages/RecipeDetailsPage.jsx
+  - Meal category: client/src/pages/CategoryPage.jsx
+
+Subtopic: useLocation (reading URL query string)
+- Where used:
+  - client/src/pages/SearchPage.jsx
+
+Subtopic: Navigate component (route guard / redirect)
+- Layman explanation:
+  - Used for redirects in JSX (example: if not logged in, go to login).
+- Where used:
+  - client/src/App.jsx (protected routes for `/saved`, `/my-recipes`, etc.)
+
+============================================================
+4) Authentication flow (frontend side)
+
+Topic: Token-based auth (JWT stored in localStorage)
+- Layman explanation:
+  - After login, server returns a token. The client stores it and sends it in the `Authorization: Bearer <token>` header for protected API calls.
+- Where used:
+  - Store and read token:
+    - client/src/state/AuthContext.jsx (localStorage key `chefmaten_token`)
+  - Attach token to API calls:
+    - client/src/lib/api.js
+  - Protected routes:
+    - client/src/App.jsx
+
+============================================================
+5) API calls (fetch)
+
+Topic: Centralized API helper function
+- Layman explanation:
+  - Instead of writing `fetch` everywhere, you made `apiFetch` that automatically sets JSON headers, token header, parses JSON, and throws errors.
+- Where used:
+  - Helper:
+    - client/src/lib/api.js
+  - Used in pages/components:
+    - SearchPage, TrendingPage, RecipeDetailsPage, SavedPage, MyRecipesPage, ProfilePage, IngredientSearchBox, AuthContext
+
+Topic: Error handling
+- Layman explanation:
+  - If HTTP status is not OK, you throw an Error with a message so UI can display it.
+- Where used:
+  - client/src/lib/api.js
+  - UI displays error text:
+    - client/src/pages/LoginPage.jsx
+    - client/src/pages/RegisterPage.jsx
+    - client/src/pages/AddRecipePage.jsx
+
+============================================================
+6) Forms and controlled inputs
+
+Topic: Controlled components
+- Layman explanation:
+  - Input value is controlled by React state. On change, state updates, then UI updates.
+- Where used:
+  - Login/Register forms:
+    - client/src/pages/LoginPage.jsx, RegisterPage.jsx
+  - Add recipe form:
+    - client/src/pages/AddRecipePage.jsx
+  - Search input + cuisine select:
+    - client/src/components/search/IngredientSearchBox.jsx
+    - client/src/pages/TrendingPage.jsx
+
+Topic: Prevent default form submit
+- Layman explanation:
+  - Prevent page reload and handle submit in JavaScript.
+- Where used:
+  - `e.preventDefault()` in onSubmit handlers:
+    - LoginPage, RegisterPage, AddRecipePage
+
+============================================================
+7) UI/UX features and patterns you used
+
+Topic: Loading states + Skeleton UI
+- Layman explanation:
+  - While fetching data, show placeholders so UI feels responsive.
+- Where used:
+  - client/src/components/ui/Skeleton.jsx
+  - Used on SearchPage/TrendingPage/CategoryPage/MyRecipesPage/RecipeDetailsPage
+
+Topic: Modals/Dialogs (Radix UI)
+- Layman explanation:
+  - Dialog is a popup overlay. Radix provides accessible primitives.
+- Where used:
+  - client/src/components/ui/Dialog.jsx
+  - client/src/components/recipes/RecipeModal.jsx
+
+Topic: Slider component (Radix UI)
+- Layman explanation:
+  - A slider is an input control where you drag a thumb to pick a number (here: servings 1–8).
+- Where used:
+  - Slider wrapper: client/src/components/ui/Slider.jsx
+  - Servings scaling:
+    - client/src/pages/RecipeDetailsPage.jsx
+    - client/src/components/recipes/RecipeModal.jsx
+
+Topic: Debouncing API calls
+- Layman explanation:
+  - Instead of calling API on every keystroke instantly, wait ~150–200ms to reduce API spam.
+- Where used:
+  - SearchPage and TrendingPage use `setTimeout` (150ms)
+  - Ingredient suggestions use `setTimeout` (200ms)
+
+Topic: Dark mode (theme toggle)
+- Layman explanation:
+  - A global theme state toggles a CSS class on `<html>`, which Tailwind uses for dark styles.
+- Where used:
+  - ThemeContext: client/src/state/ThemeContext.jsx
+  - Toggle button + icon: client/src/components/layout/AppShell.jsx
+
+Topic: TailwindCSS setup + custom CSS
+- Layman explanation:
+  - Tailwind provides utility classes. Your project also defines reusable styles (like `.container-page`) and animations in a global CSS file.
+- Where used:
+  - Tailwind directives:
+    - client/src/styles/index.css (`@tailwind base;`, `@tailwind components;`, `@tailwind utilities;`)
+  - `@apply` to bundle common utilities:
+    - client/src/styles/index.css (e.g. `body { @apply ... }`)
+  - CSS animations + prefers-reduced-motion:
+    - client/src/styles/index.css (`@keyframes`, `.skeleton`, `.floating-food-item`, `@media (prefers-reduced-motion: reduce)`)
+
+Topic: LocalStorage
+- Layman explanation:
+  - Browser storage that persists even after refresh.
+- Where used:
+  - Save token: client/src/state/AuthContext.jsx
+  - Save theme: client/src/state/ThemeContext.jsx
+
+Topic: Vite environment variables (`import.meta.env`)
+- Layman explanation:
+  - Vite injects environment variables at build time. You use them to change API base URLs and socket URLs depending on dev/production.
+- Where used:
+  - API base selection:
+    - client/src/lib/api.js (`import.meta.env.DEV`, `import.meta.env.VITE_API_BASE`)
+  - Socket URL:
+    - client/src/components/trending/TrendingTicker.jsx (`import.meta.env.VITE_SOCKET_URL`)
+
+Topic: Utility function for Tailwind class merging
+- Layman explanation:
+  - `cn()` helps combine conditional classNames without messy string code.
+- Where used:
+  - client/src/lib/cn.js
+  - Used in AppShell, RecipeDetailsPage, IngredientSearchBox, Dialog, etc.
+
+============================================================
+8) Real-time feature (Socket.IO client)
+
+Topic: socket.io-client (WebSocket-based realtime)
+- Layman explanation:
+  - Instead of constantly polling, the server pushes updates to the client live.
+- Where used:
+  - client/src/components/trending/TrendingTicker.jsx
+  - Connects to `VITE_SOCKET_URL` or defaults to `http://localhost:5001`
+  - Listens to event `trending:update`
+
+============================================================
+10) Small but important frontend concepts you used
+
+Topic: React.StrictMode
+- Layman explanation:
+  - StrictMode is a development-only safety check. It intentionally runs some things twice in dev to help catch unsafe side effects.
+- Where used:
+  - client/src/main.jsx (`<React.StrictMode>`)
+
+Topic: Accessibility + keyboard handling
+- Layman explanation:
+  - You added `aria-label` and keyboard handlers so UI is usable for keyboard users and screen readers.
+- Where used:
+  - Buttons/controls use `aria-label` in many files (examples):
+    - client/src/components/layout/AppShell.jsx
+    - client/src/components/search/IngredientSearchBox.jsx
+  - Keyboard open on cards:
+    - client/src/components/recipes/RecipeCard.jsx (Enter/Space)
+
+Topic: Image fallback logic
+- Layman explanation:
+  - If a recipe image URL fails, your UI automatically tries other candidate images and finally a generic fallback.
+- Where used:
+  - client/src/components/ui/ImageWithFallback.jsx
+  - Uses a helper to pick a recipe-specific image:
+    - client/src/utils/recipeImages.js
+
+============================================================
+9) Viva-style Q&A (quick answers)
+
+- Q: Why use React Router?
+  A: “Because it’s a SPA. React Router changes the URL and displays different components without reloading the page.”
+
+- Q: Why use Context?
+  A: “To avoid passing token/theme props through many components. Context gives global access.”
+
+- Q: Why store token in localStorage?
+  A: “So login persists after refresh. Context reads it initially from localStorage.”
+
+- Q: What is the cleanup in useEffect?
+  A: “It prevents setting state after the component unmounts, avoiding memory leaks and warnings.”
+
+- Q: How do you call APIs?
+  A: “Using `apiFetch` (fetch wrapper). It sends JSON and attaches Bearer token when needed.”

@@ -20,13 +20,19 @@ HEALTH
 ========================================
 GET {{baseUrl}}/api/health
 
+
+
+
+
 ========================================
 AUTH
 ========================================
 POST {{baseUrl}}/api/auth/register
+
 Headers:
   Content-Type: application/json
 Body (raw JSON):
+
 {
   "name": "Test User",
   "email": "testuser@chefmaten.dev",
@@ -34,22 +40,31 @@ Body (raw JSON):
 }
 
 POST {{baseUrl}}/api/auth/login
+
 Headers:
   Content-Type: application/json
 Body (raw JSON):
+
 {
   "email": "testuser@chefmaten.dev",
   "password": "test1234"
 }
 
+
+
+
+
 ========================================
 USERS (Protected)
 ========================================
+
 GET {{baseUrl}}/api/users/me
+
 Headers:
   Authorization: Bearer {{token}}
 
 GET {{baseUrl}}/api/users/me/saved
+
 Headers:
   Authorization: Bearer {{token}}
 
@@ -66,10 +81,17 @@ DELETE {{baseUrl}}/api/users/me/saved/<RECIPE_ID_STRING>
 Headers:
   Authorization: Bearer {{token}}
 
+
+
+
+
+
 ========================================
 RECIPES (Public)
 ========================================
+
 GET {{baseUrl}}/api/recipes/search?ingredients=tomato,onion
+
 Optional query params:
   servings=<number>
   difficulty=easy|medium|hard
@@ -78,26 +100,36 @@ Optional query params:
   sort=best|popular|time
 
 GET {{baseUrl}}/api/recipes/trending?limit=12
+
 Optional query params:
   cuisine=<string>
   limit=<1..30>
 
 GET {{baseUrl}}/api/recipes/ingredients/suggest?q=tom
+
 Notes:
   q must be at least 2 characters
 
 GET {{baseUrl}}/api/recipes/by-meal?meal=breakfast&limit=10
+
 Notes:
   meal examples: breakfast, lunch, dinner, dessert, snacks, drinks
 
 GET {{baseUrl}}/api/recipes/<RECIPE_ID>
+
 Optional query params:
   servings=<number>
+
+
+
+
 
 ========================================
 RECIPES (Protected CRUD)
 ========================================
+
 POST {{baseUrl}}/api/recipes
+
 Headers:
   Authorization: Bearer {{token}}
   Content-Type: application/json
@@ -132,6 +164,9 @@ Body (raw JSON example):
   "notes": ["Adjust salt to taste"]
 }
 
+
+
+
 PUT {{baseUrl}}/api/recipes/<RECIPE_ID>
 Headers:
   Authorization: Bearer {{token}}
@@ -141,15 +176,10 @@ Body (raw JSON example):
   "title": "Updated Recipe Title"
 }
 
+
+
 DELETE {{baseUrl}}/api/recipes/<RECIPE_ID>
 Headers:
   Authorization: Bearer {{token}}
 
-========================================
-Tips (Postman)
-========================================
-- Create a Postman Environment with variables:
-  baseUrl = http://localhost:5001
-  token   = (paste JWT here)
-- For protected endpoints, set Authorization header exactly:
-  Authorization: Bearer {{token}}
+
